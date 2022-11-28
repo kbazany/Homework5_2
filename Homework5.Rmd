@@ -16,6 +16,8 @@ Set up a local (i.e., on your computer) R project with subdirectories for the da
 Download the Washington Post data and save it in an appropriate place in this R project directory.
 Initialize git for the R project and make your initial commit.
 
+--Done!
+
 Create an RMarkdown file for your homework answers in the appropriate subdirectory and save it. Commit this change with an appropriate commit message. (At this stage, you can look at your “History” in the git commit window to see the changes you’ve made so far.)
 
 Login to your GitHub account and create a new, blank repo with the same name as your R project. (If you have not already set up an SSH key to make it easier to push back and forth between your computer and GitHub, do so now.)
