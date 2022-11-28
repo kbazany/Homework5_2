@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Set up a local (i.e., on your computer) R project with subdirectories for the data, writing (this is where you’ll put your Rmarkdown file and the output file), and figures.
 
+-- Done!
+
 Download the Washington Post data and save it in an appropriate place in this R project directory.
 Initialize git for the R project and make your initial commit.
 
