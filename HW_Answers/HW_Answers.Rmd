@@ -9,3 +9,34 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Packages
+```{r}
+library(tidyverse)
+library(broom)
+library(purrr)
+library(readr)
+library(scales)
+```
+
+# Downloading data
+
+```{r}
+homicides <- read_csv("../homicidedata.csv")
+homicides <- homicides %>%
+  mutate(city_name = paste(city, state, sep = ", "))
+  
+head(homicides)
+```
+
+# Data Cleaning
+
+```{r}
+
+```
+
+# Creating Figure
+
+```{r}
+
+```
+
