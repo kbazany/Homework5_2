@@ -32,4 +32,6 @@ On your computer, specify your GitHub repository as the remote for your project 
 
 Add a README.md file to the top level of your R project (on your local computer) using Markdown syntax and then commit the change locally and push to your GitHub repository.
 
+--Done!
+
 
