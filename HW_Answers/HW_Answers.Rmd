@@ -34,7 +34,8 @@ head(homicides)
 # Data Cleaning
 
 ```{r}
-
+phil_hom <- homicides %>%
+  filter(city == "Philadelphia")
 ```
 
 Map Packages
@@ -53,5 +54,9 @@ phil <- county_subdivisions(state = "PA", county = "Philadelphia", cb = TRUE, cl
 
 ```{r}
 phil <- tracts(state = "PA", county = "Philadelphia", cb = TRUE, class = "sf")
+
+ggplot() +
+  geom_sf(data = phil) +
+  geom_point(data = phil_hom, mapping = aes(x = lon, y = lat, color = victim_race), alpha = .5, size = .5)
 ```
 
