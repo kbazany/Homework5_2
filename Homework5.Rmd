@@ -28,7 +28,7 @@ Login to your GitHub account and create a new, blank repo with the same name as 
 
 On your computer, specify your GitHub repository as the remote for your project and do an initial push to send all the files to the GitHub repo. Look at your repository on GitHub to make sure it worked.
 
-
+--Done!
 
 Add a README.md file to the top level of your R project (on your local computer) using Markdown syntax and then commit the change locally and push to your GitHub repository.
 
