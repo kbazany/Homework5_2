@@ -40,7 +40,23 @@ phil_hom <- homicides %>%
     grepl("Closed by arrest", disposition) ~ "solved",
     grepl("Closed without arrest", disposition) ~ "unsolved",
     grepl("Open/No arrest", disposition) ~ "unsolved",
-        TRUE ~ "NA"))
+        TRUE ~ "NA")) 
+
+
+unvso <- phil_hom %>%
+  group_by(status, victim_race) %>%
+  count() 
+
+unvso
+
+# Black, Hispanic, and White are the top 3 most frequent victims for each
+
+phil_hom_freq <- phil_hom %>%
+  mutate(victim_race_frequent = case_when(
+    grepl("Black", victim_race) ~ "Black",
+    grepl("Hispanic", victim_race) ~ "Hispanic",
+    grepl("White", victim_race) ~ "White",
+        TRUE ~ "Other")) 
 ```
 
 Map Packages
@@ -54,15 +70,18 @@ library(viridis)
 
 # Creating Figure
 
-pa_counties <- counties(state = "PA", cb = TRUE, class = "sf")
-phil <- county_subdivisions(state = "PA", county = "Philadelphia", cb = TRUE, class = "sf")
+
+
+%>%
+  fct_lump_n(victim_race, 3)
 
 ```{r}
 phil <- tracts(state = "PA", county = "Philadelphia", cb = TRUE, class = "sf")
 
 map <- ggplot() +
   geom_sf(data = phil) +
-  geom_point(data = phil_hom, mapping = aes(x = lon, y = lat, color = victim_race), alpha = .5, size = .5)
+  geom_point(data = phil_hom_freq, mapping = aes(x = lon, y = lat, color = victim_race_frequent), alpha = .5, size = .5) + 
+  ggtitle("Homicides in Philadelphia")
 
 map + facet_wrap(vars(status))
 ```
