@@ -70,18 +70,14 @@ library(viridis)
 
 # Creating Figure
 
-
-
-%>%
-  fct_lump_n(victim_race, 3)
-
 ```{r}
 phil <- tracts(state = "PA", county = "Philadelphia", cb = TRUE, class = "sf")
 
 map <- ggplot() +
   geom_sf(data = phil) +
   geom_point(data = phil_hom_freq, mapping = aes(x = lon, y = lat, color = victim_race_frequent), alpha = .5, size = .5) + 
-  ggtitle("Homicides in Philadelphia")
+  ggtitle("Homicides in Philadelphia") + 
+  theme(legend.position = "bottom")
 
 map + facet_wrap(vars(status))
 ```
