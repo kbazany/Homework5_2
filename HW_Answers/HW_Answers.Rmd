@@ -35,7 +35,12 @@ head(homicides)
 
 ```{r}
 phil_hom <- homicides %>%
-  filter(city == "Philadelphia")
+  filter(city == "Philadelphia") %>%
+  mutate(status = case_when(
+    grepl("Closed by arrest", disposition) ~ "solved",
+    grepl("Closed without arrest", disposition) ~ "unsolved",
+    grepl("Open/No arrest", disposition) ~ "unsolved",
+        TRUE ~ "NA"))
 ```
 
 Map Packages
@@ -59,8 +64,6 @@ map <- ggplot() +
   geom_sf(data = phil) +
   geom_point(data = phil_hom, mapping = aes(x = lon, y = lat, color = victim_race), alpha = .5, size = .5)
 
-map
-
-map + facet_wrap(vars(disposition))
+map + facet_wrap(vars(status))
 ```
 
