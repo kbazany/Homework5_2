@@ -55,8 +55,12 @@ phil <- county_subdivisions(state = "PA", county = "Philadelphia", cb = TRUE, cl
 ```{r}
 phil <- tracts(state = "PA", county = "Philadelphia", cb = TRUE, class = "sf")
 
-ggplot() +
+map <- ggplot() +
   geom_sf(data = phil) +
   geom_point(data = phil_hom, mapping = aes(x = lon, y = lat, color = victim_race), alpha = .5, size = .5)
+
+map
+
+map + facet_wrap(vars(disposition))
 ```
 
